@@ -12,7 +12,7 @@
  * Return: 1 or 2;
  */
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
-	int flags, int width, int prec, int size)
+	int flags, int width, int precision, int size)
 {
 	int x, unknown_len = 0, printed_char = -1;
 	fmt_t fmt_types[] = {
@@ -24,7 +24,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 	};
 	for (x = 0; fmt_types[x].fmt != '\0'; x++)
 		if (fmt[*ind] == fmt_types[x].fmt)
-			return (fmt_types[x].fn(list, buffer, flags, width, prec, size));
+			return (fmt_types[x].fn(list, buffer, flags, width, precision, size));
 
 	if (fmt_types[x].fmt == '\0')
 	{
